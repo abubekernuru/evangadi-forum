@@ -16,12 +16,12 @@ const dbConnection = mysql.createPool({
     reconnect: true
 });
 
-dbConnection.execute('SELECT "test" AS connection_test', (err, results) => {
-    if (err) {
-        console.error('Database connection failed:', err);
-    } else {
-        console.log('Database connection successful:', results);    
-    }
-});
+// dbConnection.execute('SELECT "test" AS connection_test', (err, results) => {
+//     if (err) {
+//         console.error('Database connection failed:', err);
+//     } else {
+//         console.log('Database connection successful:', results);    
+//     }
+// });
 
-// module.exports = dbConnection;
+module.exports = dbConnection.promise();

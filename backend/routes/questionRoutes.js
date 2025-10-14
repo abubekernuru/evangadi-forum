@@ -96,10 +96,10 @@
 // const router = express.Router();
 
 // // question controllers
-// const { getQuestion, postQuestion } = require('../controller/questionController.js');
+// const { getSingleQuestion, postQuestion } = require('../controller/questionController.js');
 
 // // GET /api/question/:question_id - Get Question for question
-// router.get('/:question_id', getQuestion);
+// router.get('/:question_id', getSingleQuestion);
 
 // // POST /api/question - Post question to question (protected)
 // router.post('/', postquestion);
@@ -110,13 +110,13 @@ const express = require('express');
 const router = express.Router();
 
 // question controllers
-const { getQuestions, getQuestion, postQuestion } = require('../controller/questionController.js');
+const { getAllQuestions, getSingleQuestion, postQuestion } = require('../controller/questionController.js');
 
 // get all questions
-router.get('/', getQuestions);
+router.get('/', getAllQuestions);
 
 // get single question
-router.get('/:question_id', getQuestion);
+router.get('/:question_id', getSingleQuestion);
 
 // post a new question
 router.post('/', postQuestion);

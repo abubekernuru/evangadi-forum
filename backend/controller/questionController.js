@@ -1,8 +1,8 @@
-function getQuestions(req, res){
+function getAllQuestions(req, res){
     res.send("Get all questions")
 }
 
-function getQuestion(req, res){
+function getSingleQuestion(req, res){
     res.send("Get specific question")
 }
 
@@ -10,4 +10,4 @@ function postQuestion(req, res){
     res.send("Post question")
 }
 
-module.exports = { getQuestions, getQuestion, postQuestion }
+module.exports = { getAllQuestions, getSingleQuestion, postQuestion }

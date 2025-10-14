@@ -48,6 +48,7 @@
 
 const express = require('express');
 const app = express();
+const dbConnection = require('./config/db.js');
 
 const Port = 5500;
 
@@ -62,20 +63,32 @@ app.use('/api/users', userRoutes)
 
 
 // question routes middleeware
-app.use('/api/users/question', questionRoutes)
+app.use('/api/question', questionRoutes)
 
 // answer routes middleware 
-app.use('/api/users/answer', answerRoutes)
+app.use('/api/answer', answerRoutes)
 
 
-app.listen(Port, (err)=>{
-    if(err){
-        console.log(err);
+async function start() {
+    try {
+        const result = await dbConnection.execute('SELECT "test" AS connection_test')
+        app.listen(Port)
+        console.log("Database connected succesfully")
+    } catch (error) {
+        console.log(error)
     }
-    else {
-        console.log(`Listening on ${Port}`)
-    }
-})
+}
+start();
+
+
+// app.listen(Port, (err)=>{
+//     if(err){
+//         console.log(err);
+//     }
+//     else {
+//         console.log(`Listening on ${Port}`)
+//     }
+// })
 
 
 
