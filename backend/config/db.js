@@ -24,4 +24,4 @@ dbConnection.execute('SELECT "test" AS connection_test', (err, results) => {
     }
 });
 
-module.exports = dbConnection;
+// module.exports = dbConnection;
