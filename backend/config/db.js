@@ -8,7 +8,7 @@ const dbConnection = mysql.createPool({
     // password: process.env.DB_PASSWORD || 'your_mysql_password_here',
     password: 'abuki123456@?',
     database: 'evangadi_forum',
-    waitForConnections: true,
+    waitForConnections: true, 
     connectionLimit: 10, 
     queueLimit: 0,
     acquireTimeout: 60000,
