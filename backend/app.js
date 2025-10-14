@@ -51,8 +51,10 @@ const app = express();
 
 const Port = 5500;
 
-// user routes middleware file
+// middleware files
 const userRoutes = require('./routes/userRoutes.js');
+const questionRoutes = require('./routes/questionRoutes.js')
+const answerRoutes = require('./routes/answerRoutes.js')
 
 
 // user routes middleware 
@@ -60,8 +62,10 @@ app.use('/api/users', userRoutes)
 
 
 // question routes middleeware
+app.use('/api/users/question', questionRoutes)
 
 // answer routes middleware 
+app.use('/api/users/answer', answerRoutes)
 
 
 app.listen(Port, (err)=>{
