@@ -7,13 +7,7 @@ const dbConnection = mysql.createPool({
     user: 'evangadi_forum',
     // password: process.env.DB_PASSWORD || 'your_mysql_password_here',
     password: 'abuki123456@?',
-    database: 'evangadi_forum',
-    waitForConnections: true, 
-    connectionLimit: 10, 
-    queueLimit: 0,
-    acquireTimeout: 60000,
-    timeout: 60000,
-    reconnect: true
+    database: 'evangadi_forum'
 });
 
 // dbConnection.execute('SELECT "test" AS connection_test', (err, results) => {
