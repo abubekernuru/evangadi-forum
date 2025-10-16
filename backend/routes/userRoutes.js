@@ -113,6 +113,7 @@
 
 const express = require('express');
 const router = express.Router();
+const authMiddleware = require('../middleware/authMiddleware')
 
 // user controllers
 const { register, login, checkUser} = require('../controller/userController.js');
@@ -124,7 +125,7 @@ router.post('/register', register);
 router.post('/login', login);
 
 // check user route
-router.get('/checkUser', checkUser);
+router.get('/checkUser', authMiddleware, checkUser);
 
 module.exports = router;
 

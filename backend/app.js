@@ -61,15 +61,12 @@ const userRoutes = require('./routes/userRoutes.js');
 const questionRoutes = require('./routes/questionRoutes.js')
 const answerRoutes = require('./routes/answerRoutes.js')
 
+// Import middleware
+const authenticate = require('./middleware/authMiddleware.js');
 
-// user routes middleware 
+// Routes - AFTER middleware
 app.use('/api/users', userRoutes)
-
-
-// question routes middleeware
 app.use('/api/question', questionRoutes)
-
-// answer routes middleware 
 app.use('/api/answer', answerRoutes)
 
 
