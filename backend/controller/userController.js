@@ -2,6 +2,7 @@ const bcrypt = require('bcrypt')
 const { StatusCodes } = require('http-status-codes')
 const dbConnection = require('../config/db')
 const jwt = require('jsonwebtoken')
+require('dotenv').config();
 
 async function register(req, res){
 
@@ -51,7 +52,7 @@ async function login(req, res){
         }
         const username = user[0].username;
         const id = user[0].id;
-        const token = jwt.sign({username, id}, "secret", {expiresIn: "1d"});
+        const token = jwt.sign({username, id}, process.env.JWT_SECRET, {expiresIn: "1d"});
 
         return res.status(StatusCodes.OK).json({msg: "user login successful", token})
     

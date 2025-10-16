@@ -73,14 +73,15 @@
 
 const express = require('express');
 const router = express.Router();
+const authMiddleware = require('../middleware/authMiddleware')
 
 // answer controllers
 const { getAnswers, postAnswer } = require('../controller/answerController.js');
 
 // GET /api/answer/:question_id - Get answers for question
-router.get('/:question_id', getAnswers);
+router.get('/:question_id', authMiddleware, getAnswers);
 
 // POST /api/answer - Post answer to question (protected)
-router.post('/', postAnswer);
+router.post('/',authMiddleware, postAnswer);
 
 module.exports = router;

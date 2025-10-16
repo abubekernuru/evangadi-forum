@@ -48,13 +48,13 @@
 
 const express = require('express');
 const cors = require('cors');
+require('dotenv').config();
 const app = express();
 const dbConnection = require('./config/db.js');
 
 app.use(cors());
 app.use(express.json());
 
-const Port = 5500;
 
 // middleware files
 const userRoutes = require('./routes/userRoutes.js');
@@ -62,7 +62,7 @@ const questionRoutes = require('./routes/questionRoutes.js')
 const answerRoutes = require('./routes/answerRoutes.js')
 
 // Import middleware
-const authenticate = require('./middleware/authMiddleware.js');
+const authMiddleware = require('./middleware/authMiddleware.js');
 
 // Routes - AFTER middleware
 app.use('/api/users', userRoutes)
@@ -73,7 +73,7 @@ app.use('/api/answer', answerRoutes)
 async function start() {
     try {
         const result = await dbConnection.execute('SELECT "test" AS connection_test')
-        app.listen(Port)
+        app.listen(process.env.PORT)
         console.log("Database connected succesfully")
     } catch (error) {
         console.log(error)
