@@ -48,13 +48,13 @@ async function login(req, res){
         // compare password
         const isMatch = await bcrypt.compare(password, user[0].password)
         if(!isMatch){
-            return res.status(StatusCodes.CONFLICT).json({ msg: "Invalid credential" });
+            return res.status(StatusCodes.CONFLICT).json({ msg: "Invalid credential Incorrect Password" });
         }
         const username = user[0].username;
         const id = user[0].id;
         const token = jwt.sign({username, id}, process.env.JWT_SECRET, {expiresIn: "1d"});
 
-        return res.status(StatusCodes.OK).json({msg: "user login successful", token})
+        return res.status(StatusCodes.OK).json({msg: "user login successful", token, username})
     
     } catch (error) {
         res.status(StatusCodes.INTERNAL_SERVER_ERROR).json({ msg: "Something went wrong, try again later!", error});
