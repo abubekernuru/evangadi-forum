@@ -2,6 +2,9 @@ import { useRef } from 'react'
 import axios from '../axiosConfig'
 import { useNavigate } from 'react-router-dom';
 import { Link } from 'react-router-dom';
+import './Auth.css'
+import Header from '../components/Header/Header'
+import Footer from '../components/Footer/Footer'
 
 function Register() {
 
@@ -51,32 +54,57 @@ function Register() {
   }
 
   return (
-    <section>
-      <form onSubmit={handleSubmit}>
-        <div>
-          <span>username :---</span>
-          <input ref={usernameDom} type="text" placeholder='username' />
-        </div>
-        <div>
-          <span>first name :---</span>
-          <input ref={firstnameDom} type="text" placeholder='first name' />
-        </div>
-        <div>
-          <span>last name :---</span>
-          <input ref={lastnameDom} type="text" placeholder='last name' />
-        </div>
-        <div>
-          <span>email :---</span>
-          <input ref={emailDom} type="text" placeholder='email' />
-        </div>
-        <div>
-          <span>password :---</span>
-          <input ref={passwordDom} type="password" placeholder='password' />
-        </div>
-        <button type="submit">Register</button>
-      </form>
-      <Link to="/login">Login</Link>
-    </section>
+    <>
+      <Header />
+      <section className="auth-page">
+        <main className="auth-container">
+          <div className="auth-card">
+            <h2 className="auth-title">Register</h2>
+            <form onSubmit={handleSubmit} className="auth-form">
+              <label className="form-row">
+                <span className="label">Username</span>
+                <input ref={usernameDom} type="text" placeholder='username' />
+              </label>
+              <label className="form-row">
+                <span className="label">First name</span>
+                <input ref={firstnameDom} type="text" placeholder='first name' />
+              </label>
+              <label className="form-row">
+                <span className="label">Last name</span>
+                <input ref={lastnameDom} type="text" placeholder='last name' />
+              </label>
+              <label className="form-row">
+                <span className="label">Email</span>
+                <input ref={emailDom} type="text" placeholder='email' />
+              </label>
+              <label className="form-row">
+                <span className="label">Password</span>
+                <input ref={passwordDom} type="password" placeholder='password' />
+              </label>
+              <div className="actions">
+                <button className="btn" type="submit">Register</button>
+                <Link className="link" to="/login">Login</Link>
+              </div>
+            </form>
+          </div>
+
+          <aside className="auth-about">
+            <h3>About Evangadi Q&amp;A</h3>
+            <p>
+              Evangadi Forum is a community Q&amp;A platform for learners and
+              developers. Ask practical questions, share solutions, and collaborate
+              with peers to grow your skills.
+            </p>
+            <ul>
+              <li>Ask clear, focused questions</li>
+              <li>Share reproducible examples</li>
+              <li>Help others and earn recognition</li>
+            </ul>
+          </aside>
+        </main>
+      </section>
+      <Footer />
+    </>
   )
 }
 

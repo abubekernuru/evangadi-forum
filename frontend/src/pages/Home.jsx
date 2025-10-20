@@ -2,6 +2,7 @@ import React from 'react'
 import { useContext } from 'react';
 import { AppState } from '../App';
 import Header from '../components/Header/Header';
+import Footer from '../components/Footer/Footer';
 
 function Home() {
 
@@ -17,6 +18,7 @@ function Home() {
       <br />
       <br />
       <h2>{user.username}</h2>
+      <Footer />
     </>
     
   )

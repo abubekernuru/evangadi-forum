@@ -1,0 +1,176 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Footer Styles */
+.footer {
+  background-color: #23262a;
+  color: #e6e9eb;
+  padding: 30px 0;
+  margin-top: auto;
+  bottom: 0;
+}
+
+.footer-container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 40px;
+}
+
+/* Footer Sections */
+.footer-section {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+/* Logo Section */
+.logo-section {
+  max-width: 120px;
+}
+
+.footer-logo {
+  width: 120px;
+  height: 18px;
+  object-fit: contain;
+}
+
+/* Links Section */
+.links-section {
+  flex: 2;
+}
+
+.footer-links {
+  display: flex;
+  gap: 24px;
+}
+
+.footer-link {
+  color: #e6e9eb;
+  text-decoration: none;
+  font-size: 0.85rem;
+  padding: 4px 0;
+  transition: all 150ms ease;
+}
+
+.footer-link:hover {
+  color: #f90;
+  transform: translateY(-1px);
+}
+
+/* Social Media Section */
+.social-section {
+  flex: 1;
+}
+
+.social-links {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+}
+
+.social-link {
+  color: #e6e9eb;
+  padding: 6px;
+  border-radius: 4px;
+  transition: all 150ms ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.social-link:hover {
+  color: #f90;
+  background-color: rgba(255, 255, 255, 0.05);
+  transform: translateY(-1px);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .footer {
+    padding: 25px 0;
+  }
+
+  .footer-container {
+    flex-direction: column;
+    gap: 25px;
+    text-align: center;
+  }
+
+  .footer-section {
+    width: 100%;
+  }
+
+  .logo-section {
+    max-width: 100%;
+    order: 1;
+  }
+
+  .links-section {
+    order: 3;
+    margin-top: 5px;
+  }
+
+  .social-section {
+    order: 2;
+  }
+
+  .footer-links {
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+
+  .social-links {
+    gap: 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .footer {
+    padding: 20px 0;
+  }
+
+  .footer-container {
+    padding: 0 16px;
+    gap: 20px;
+  }
+
+  .footer-links {
+    gap: 15px;
+  }
+
+  .footer-link {
+    font-size: 0.8rem;
+  }
+
+  .social-links {
+    gap: 12px;
+  }
+
+  .social-link svg {
+    width: 18px;
+    height: 18px;
+  }
+
+  .footer-logo {
+    width: 100px;
+    height: 15px;
+  }
+}
+
+/* Extra small screens */
+@media (max-width: 360px) {
+  .footer-links {
+    flex-direction: column;
+    gap: 8px;
+  }
+}

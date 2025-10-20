@@ -1,19 +1,9 @@
-import React, { useContext } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
-import { AppState } from '../../App';
+import React from 'react';
+import { Link } from 'react-router-dom';
 import './Header.css';
 import logo from '../../assets/evangai-logo.png';
 
 const Header = () => {
-  const navigate = useNavigate();
-  const { user, setUser } = useContext(AppState);
-
-  const handleLogout = () => {
-    localStorage.removeItem('token');
-    setUser(null);
-    navigate('/');
-  };
-  
   return (
     <header className="header">
       <div className="container">
@@ -21,25 +11,24 @@ const Header = () => {
           <Link to="/"><img src={logo} alt="Evangadi Forum" /></Link>
         </div>
         
+        {/* Hidden checkbox for mobile menu state */}
+        <input type="checkbox" id="nav-toggle" />
+        
+        {/* Hamburger menu button */}
+        <label htmlFor="nav-toggle" className="menu-btn">
+          <span className="bar"></span>
+          <span className="bar"></span>
+          <span className="bar"></span>
+        </label>
+        
+        {/* Spacer to push hamburger to the right on mobile */}
+        <div className="spacer"></div>
+        
+        {/* Navigation menu */}
         <nav className="nav">
           <Link to="/" className="nav-link">Home</Link>
-          <Link to="/about" className="nav-link">About</Link>
-          
-          {user ? (
-            <>
-              <span className="welcome-text">Welcome, {user.username}!</span>
-              <Link to="/ask-question" className="nav-link ask-btn">
-                Ask Question
-              </Link>
-              <button onClick={handleLogout} className="logout-btn">
-                Logout
-              </button>
-            </>
-          ) : (
-            <Link to="/login" className="nav-link login-btn">
-              Login
-            </Link>
-          )}
+          <Link to="/how-it-works" className="nav-link">How it works</Link>
+          <Link to="/login" className="nav-link signin-btn">Sign in</Link>
         </nav>
       </div>
     </header>
