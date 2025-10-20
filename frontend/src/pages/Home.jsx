@@ -1,6 +1,7 @@
 import React from 'react'
 import { useContext } from 'react';
 import { AppState } from '../App';
+import Header from '../components/Header/Header';
 
 function Home() {
 
@@ -8,14 +9,15 @@ function Home() {
   console.log(user);
 
   return (
-    <div>
+    <>
+      <Header />
       <h1>Home</h1>
       <br />
       <br />
       <br />
       <br />
       <h2>{user.username}</h2>
-    </div>
+    </>
     
   )
 }

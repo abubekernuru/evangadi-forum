@@ -82,6 +82,6 @@ const { getAnswers, postAnswer } = require('../controller/answerController.js');
 router.get('/:question_id', authMiddleware, getAnswers);
 
 // POST /api/answer - Post answer to question (protected)
-router.post('/',authMiddleware, postAnswer);
+router.post('/answerPost',authMiddleware, postAnswer);
 
 module.exports = router;

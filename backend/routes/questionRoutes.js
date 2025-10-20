@@ -120,6 +120,6 @@ router.get('/',authMiddleware, getAllQuestions);
 router.get('/:question_id',authMiddleware, getSingleQuestion);
 
 // post a new question
-router.post('/post',authMiddleware, postQuestion);
+router.post('/questionPost',authMiddleware, postQuestion);
 
 module.exports = router;
